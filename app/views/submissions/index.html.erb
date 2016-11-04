@@ -31,14 +31,14 @@
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td class="yes"><%= link_to submission do %>
-          <i class="fa fa-check fa-border" aria-hidden="true"></i>
+        <td><%= link_to submission do %>
+          <i class="fa fa-check fa-border yes" aria-hidden="true"></i>
         <% end %></td>
-        <td class="hold"><%= link_to submission do %>
-          <i class="fa fa-pause fa-border" aria-hidden="true"></i>
+        <td><%= link_to submission do %>
+          <i class="fa fa-pause fa-border hold" aria-hidden="true"></i>
         <% end %></td>
-        <td class="no"><%= link_to submission do %>
-          <i class="fa fa-times fa-border" aria-hidden="true"></i>
+        <td><%= link_to submission do %>
+          <i class="fa fa-times fa-border no" aria-hidden="true"></i>
         <% end %></td>
       </tr>
     <% end %>
