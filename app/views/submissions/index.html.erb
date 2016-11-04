@@ -2,6 +2,12 @@
 
 <h1>Listing Submissions</h1>
 
+<%= link_to 'All', {controller: 'submissions', action: 'index', :status => ''}, class: "btn btn-primary" %>
+<%= link_to 'Outstanding', {controller: 'submissions', action: 'index', :status => ''}, class: "btn btn-primary" %>
+<%= link_to 'Accepted', {controller: 'submissions', action: 'index', :status => 'accepted'}, class: "btn btn-success" %>
+<%= link_to 'On Hold', {controller: 'submissions', action: 'index', :status => 'hold'}, class: "btn btn-warning" %>
+<%= link_to 'Rejected', {controller: 'submissions', action: 'index', :status => 'reject'}, class: "btn btn-danger" %>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>
