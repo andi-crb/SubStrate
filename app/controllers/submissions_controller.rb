@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept]
 
   # GET /submissions
   # GET /submissions.json
@@ -48,6 +48,17 @@ class SubmissionsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  # PATCH/PUT /submissions/1
+  # PATCH/PUT /submissions/1.json
+  
+  def accept
+    @submission.update_attribute(:status, accepted)
+    respond_to do |format|
+      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+      format.json { render :show, status: :ok, location: @submission }
     end
   end
 
