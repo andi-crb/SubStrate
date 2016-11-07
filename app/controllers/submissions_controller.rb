@@ -54,34 +54,31 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   
-    def accept
-    respond_to do |format|
-      if @submission.accept(submission_params)
-        format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
-        format.json { render :show, status: :ok, location: @submission }
-      else
-        format.html { render :edit }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-  
-  
-  # def accept
-  #   @submission.accept
-  #   @submission.update_attributes(:status, "accepted")
-  #   respond_to do |format|
-  #     format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
-  #     format.json { render :show, status: :ok, location: @submission }
-  #   end
-  # end
 
 def accept
-  # @submission = Submission.find(params[:id])
-  if @submission.update_attribute(:status, "accepted")
-      redirect_to :action => 'show', :id => @submission
+  respond_to do |format|
+    if @submission.update_attribute(:status, "accepted")
+      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+      format.json { render :index, status: :ok, location: @submission }
+    else
+      format.html { render :edit }
+      format.json { render json: @submission.errors, status: :unprocessable_entity }
+    end
   end
 end
+  
+def reject
+  respond_to do |format|
+    if @submission.update_attribute(:status, "rejected")
+      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+      format.json { render :index, status: :ok, location: @submission }
+    else
+      format.html { render :edit }
+      format.json { render json: @submission.errors, status: :unprocessable_entity }
+    end
+  end
+end
+
 
 
   # DELETE /submissions/1
