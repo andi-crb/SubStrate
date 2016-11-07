@@ -33,7 +33,8 @@
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to submission, method: :accept, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to accept_status_change_path(submission.id), method: :accept, data: { confirm: 'Are you sure?' } do %>
+          <% debug params %>
           <i class="fa fa-check fa-border yes" aria-hidden="true"></i>
         <% end %></td>
         <td><%= link_to submission do %>

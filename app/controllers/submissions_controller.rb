@@ -54,13 +54,35 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   
-  def accept
-    @submission.update_attribute(:status, accepted)
+    def accept
     respond_to do |format|
-      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
-      format.json { render :show, status: :ok, location: @submission }
+      if @submission.accept(submission_params)
+        format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+        format.json { render :show, status: :ok, location: @submission }
+      else
+        format.html { render :edit }
+        format.json { render json: @submission.errors, status: :unprocessable_entity }
+      end
     end
   end
+  
+  
+  # def accept
+  #   @submission.accept
+  #   @submission.update_attributes(:status, "accepted")
+  #   respond_to do |format|
+  #     format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+  #     format.json { render :show, status: :ok, location: @submission }
+  #   end
+  # end
+
+def accept
+  # @submission = Submission.find(params[:id])
+  if @submission.update_attribute(:status, "accepted")
+      redirect_to :action => 'show', :id => @submission
+  end
+end
+
 
   # DELETE /submissions/1
   # DELETE /submissions/1.json

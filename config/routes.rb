@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   resources :submissions
   
+  # post '/accept_status_change' => 'submissions#accept' , as: :accept_status_change
+  post '/accept_status_change/:id' => 'submissions#accept' , as: :accept_status_change
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
