@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept]
+  before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept, :reject, :hold]
 
   # GET /submissions
   # GET /submissions.json
@@ -58,7 +58,7 @@ class SubmissionsController < ApplicationController
 def accept
   respond_to do |format|
     if @submission.update_attribute(:status, "accepted")
-      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+      format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
       format.json { render :index, status: :ok, location: @submission }
     else
       format.html { render :edit }
@@ -70,7 +70,7 @@ end
 def reject
   respond_to do |format|
     if @submission.update_attribute(:status, "rejected")
-      format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
+      format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
       format.json { render :index, status: :ok, location: @submission }
     else
       format.html { render :edit }
@@ -79,7 +79,17 @@ def reject
   end
 end
 
-
+def hold
+  respond_to do |format|
+    if @submission.update_attribute(:status, "on hold")
+      format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
+      format.json { render :index, status: :ok, location: @submission }
+    else
+      format.html { render :edit }
+      format.json { render json: @submission.errors, status: :unprocessable_entity }
+    end
+  end
+end
 
   # DELETE /submissions/1
   # DELETE /submissions/1.json
