@@ -16,7 +16,7 @@
       <th>Submission</th>
       <th>Coverletter</th>
       <th>Status</th>
-      <th>Time</th>
+      <th>Days</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@
         <td><%= submission.submission %></td>
         <td><%= submission.coverletter %></td>
         <td><%= submission.status %></td>
-        <td><%= submission.time %></td>
+        <td align="right"><% if ((Date.today - Date.parse(submission.time.to_s)).to_i) > 21 %><i class="fa fa-clock-o clock" aria-hidden="true"></i><% end %> <%= (Date.today - Date.parse(submission.time.to_s)).to_i %></td>
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
