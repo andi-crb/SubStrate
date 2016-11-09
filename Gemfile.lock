@@ -149,7 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (~> 3.1.11)
   byebug
   coffee-rails (~> 4.1.0)
   has_scope (~> 0.7.0)
