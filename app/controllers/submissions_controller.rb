@@ -25,9 +25,9 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
     @submission = Submission.new(submission_params)
-
     respond_to do |format|
       if @submission.save
+        SubmissionMailer.submission_email(@submission).deliver_later
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
         format.json { render :show, status: :created, location: @submission }
       else
@@ -58,6 +58,7 @@ class SubmissionsController < ApplicationController
 def accept
   respond_to do |format|
     if @submission.update_attribute(:status, "accepted")
+      DecisionMailer.acceptance_email(@submission).deliver_later
       format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
       format.json { render :index, status: :ok, location: @submission }
     else
@@ -70,6 +71,7 @@ end
 def reject
   respond_to do |format|
     if @submission.update_attribute(:status, "rejected")
+      DecisionMailer.rejection_email(@submission).deliver_later
       format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
       format.json { render :index, status: :ok, location: @submission }
     else
@@ -82,6 +84,7 @@ end
 def hold
   respond_to do |format|
     if @submission.update_attribute(:status, "on hold")
+      DecisionMailer.hold_email(@submission).deliver_later
       format.html { redirect_to submissions_url, notice: 'Submission was successfully updated.' }
       format.json { render :index, status: :ok, location: @submission }
     else
