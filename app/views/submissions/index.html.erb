@@ -18,6 +18,8 @@
       <th>Status</th>
       <th>Days</th>
       <th colspan="3"></th>
+      <th>My Rating</th>
+      <th>Average Rating</th>
     </tr>
   </thead>
 
@@ -33,6 +35,8 @@
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
+        <td></td>
         <td><%= link_to accept_status_change_path(submission.id), method: :accept, data: { confirm: 'Are you sure?' } do %>
           <i class="fa fa-check fa-border yes" aria-hidden="true"></i>
         <% end %></td>
