@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post '/accept_status_change/:id' => 'submissions#accept' , as: :accept_status_change
   post '/reject_status_change/:id' => 'submissions#reject' , as: :reject_status_change
   post '/hold_status_change/:id' => 'submissions#hold' , as: :hold_status_change
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
