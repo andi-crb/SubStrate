@@ -35,7 +35,13 @@
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td></td>
+        <td>
+          <span class="rated"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span class="rated"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span class="rated"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span class="unrated"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span class="unrated"><i class="fa fa-star" aria-hidden="true"></i></span>
+        </td>
         <td></td>
         <td><%= link_to accept_status_change_path(submission.id), method: :accept, data: { confirm: 'Are you sure?' } do %>
           <i class="fa fa-check fa-border yes" aria-hidden="true"></i>

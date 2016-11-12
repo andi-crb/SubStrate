@@ -33,3 +33,22 @@
 .clock {
  color: red;
 }
+
+li .navbar {
+     padding-top: 17px;
+    padding-bottom: 13px;
+}
+
+.rated {
+ padding: 0px;
+ color: #e7c300;
+ text-shadow: 0 0 0.2em #ffec8b, 0 0 0.2em #ffec8b, 0 0 0.2em #ffec8b;
+ font-size: 20px
+}
+
+
+.unrated {
+ padding: 0px;
+ color: gray;
+ font-size: 20px
+}
