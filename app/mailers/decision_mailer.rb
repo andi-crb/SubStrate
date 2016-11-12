@@ -1,4 +1,15 @@
 class DecisionMailer < ApplicationMailer
     default from: "from@example.com"
-    layout 'mailer'
+  def acceptance_email(submission)
+    @submission = submission
+    mail(to: @submission.email, subject: 'Submission Response')
+  end
+  def hold_email(submission)
+    @submission = submission
+    mail(to: @submission.email, subject: 'Submission Response')
+  end
+  def reject_email(submission)
+    @submission = submission
+    mail(to: @submission.email, subject: 'Submission Response')
+  end
 end
