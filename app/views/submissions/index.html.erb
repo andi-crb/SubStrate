@@ -8,6 +8,7 @@
 <%= link_to 'On Hold', {controller: 'submissions', action: 'index', :status => 'hold'}, class: "btn btn-warning" %>
 <%= link_to 'Rejected', {controller: 'submissions', action: 'index', :status => 'reject'}, class: "btn btn-danger" %>
 
+<%= current_user.email %>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -25,7 +26,7 @@
 
   <tbody>
     <% @submissions.each do |submission| %>
-      <tr class="<%= 'danger' if submission.status == 'rejected' %> <%= 'success' if submission.status == 'accepted' %> <%= 'warning' if submission.status == 'on hold' %>" >
+      <tr class="<%= 'danger' if submission.status == 'rejected' %> <%='success' if submission.status == 'accepted'%> <%= 'warning' if submission.status == 'on hold' %>" >
         <td><%= submission.name %></td>
         <td><%= submission.email %></td>
         <td><%= submission.submission %></td>
@@ -36,12 +37,32 @@
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
-          <% @rating=1 %>
-          <span class="<%= 'rated' if @rating > 0 %> <%= 'unrated' if @rating == 0 %>"><i class="fa fa-star" aria-hidden="true"></i></span>
-          <span class="<%= 'rated' if @rating > 1 %> <%= 'unrated' if @rating <2 %>"><i class="fa fa-star" aria-hidden="true"></i></span>
-          <span class="<%= 'rated' if @rating > 2 %> <%= 'unrated' if @rating <3 %>"><i class="fa fa-star" aria-hidden="true"></i></span>
-          <span class="<%= 'rated' if @rating > 3 %> <%= 'unrated' if @rating <4 %>"><i class="fa fa-star" aria-hidden="true"></i></span>
-          <span class="<%= 'rated' if @rating > 4 %> <%= 'unrated' if @rating <5 %>"><i class="fa fa-star" aria-hidden="true"></i></span>
+          <% @rating=4 %>
+          <%= link_to hold_status_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 0 %> <%= 'unrated' if @rating <1 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to hold_status_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 1 %> <%= 'unrated' if @rating <2 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to hold_status_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 2 %> <%= 'unrated' if @rating <3 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to hold_status_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 3 %> <%= 'unrated' if @rating <4 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to hold_status_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 4 %> <%= 'unrated' if @rating <5 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
         </td>
         <td></td>
         <td><%= link_to accept_status_change_path(submission.id), method: :accept, data: { confirm: 'Are you sure?' } do %>

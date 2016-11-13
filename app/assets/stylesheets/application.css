@@ -39,7 +39,7 @@ li .navbar {
     padding-bottom: 13px;
 }
 
-.rated {
+.rated, a .rated {
  padding: 0px;
  color: #e7c300;
  text-shadow: 0 0 0.2em #ffec8b, 0 0 0.2em #ffec8b, 0 0 0.2em #ffec8b;
@@ -47,8 +47,19 @@ li .navbar {
 }
 
 
-.unrated {
+.unrated, a .unrated {
  padding: 0px;
  color: gray;
  font-size: 20px
+}
+ 
+a:hover .rated, a:hover .unrated {
+ padding: 0px;
+ color: #40e0d0;
+ text-shadow: 0 0 0.2em #85ebe1, 0 0 0.2em #85ebe1, 0 0 0.2em #85ebe1;
+ font-size: 20px 
+}
+
+.fa {
+ padding: 0px;
 }

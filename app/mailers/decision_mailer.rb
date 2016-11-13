@@ -8,7 +8,7 @@ class DecisionMailer < ApplicationMailer
     @submission = submission
     mail(to: @submission.email, subject: 'Submission Response')
   end
-  def reject_email(submission)
+  def rejection_email(submission)
     @submission = submission
     mail(to: @submission.email, subject: 'Submission Response')
   end
