@@ -36,6 +36,11 @@ class RatingsController < ApplicationController
       end
     end
   end
+  
+def change
+
+end
+    
 
   # PATCH/PUT /ratings/1
   # PATCH/PUT /ratings/1.json

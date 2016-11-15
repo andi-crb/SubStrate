@@ -20,14 +20,17 @@
  
  .yes {
   color: green;
+  font-size: 20px; 
  }
  
  .no {
   color: red;
+  font-size: 20px 
  }
  
  .hold {
   color: orange;
+  font-size: 20px 
  }
 
 .clock {
