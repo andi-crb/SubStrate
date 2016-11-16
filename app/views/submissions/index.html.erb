@@ -26,7 +26,7 @@
   <tbody>
     <% @submissions.each do |submission| %>
       <tr class="<%= 'danger' if submission.status == 'rejected' %> <%='success' if submission.status == 'accepted'%> <%= 'warning' if submission.status == 'on hold' %>" >
-        <td><%= submission.name %></td>
+        <td><%= submission.name %><%= submission.id %></td>
         <td><%= submission.email %></td>
         <td><%= submission.submission %></td>
         <td><%= submission.coverletter %></td>

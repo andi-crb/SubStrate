@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :ratings
   resources :users
   root 'welcome#index'
