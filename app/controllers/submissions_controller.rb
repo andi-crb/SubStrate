@@ -2,10 +2,10 @@ class SubmissionsController < ApplicationController
   # before_action :require_login
   # before_filter :authenticate_user!, only: [:index, :destroy]
   before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept, :reject, :hold]
-  has_scope :status
+  # has_scope :status
   # GET /submissions
   # GET /submissions.json
-    before_action :require_login
+    # before_action :require_login
 
 private
 

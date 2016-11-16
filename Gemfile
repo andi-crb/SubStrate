@@ -27,6 +27,8 @@ gem 'devise'
 gem 'has_scope', '~> 0.7.0'
 gem 'bcrypt', '~> 3.1.11'
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
