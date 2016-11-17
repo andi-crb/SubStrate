@@ -1,6 +1,6 @@
 class Submission < ActiveRecord::Base
-    include Filterable
-    scope :status, -> (status) { where status: status }
+    # include Filterable
+    # scope :status, -> (status) { where status: status }
     
 
 end
