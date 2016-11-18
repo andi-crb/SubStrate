@@ -14,9 +14,8 @@
       <th>Name</th>
       <th>Email</th>
       <th>Submission</th>
-      <th>Cover Letter</th>
       <th>Status</th>
-      <th>Days</th>
+      <th>Days Since Submission</th>
       <th></th>
       <th>My Rating</th>
       <th>Average Rating</th>
@@ -26,12 +25,11 @@
   <tbody>
     <% @submissions.each do |submission| %>
       <tr class="<%= 'danger' if submission.status == 'rejected' %> <%='success' if submission.status == 'accepted'%> <%= 'warning' if submission.status == 'on hold' %>" >
-        <td><%= submission.name %><%= submission.id %></td>
+        <td><%= submission.name %></td>
         <td><%= submission.email %></td>
         <td><%= submission.submission %></td>
-        <td><%= submission.coverletter %></td>
         <td><%= submission.status %></td>
-        <td align="right"><% if ((Date.today - Date.parse(submission.time.to_s)).to_i) > 21 %><i class="fa fa-clock-o clock" aria-hidden="true"></i><% end %> <%= (Date.today - Date.parse(submission.time.to_s)).to_i %></td>
+        <td align="right"><% if ((Date.today - Date.parse(submission.created_at.to_s)).to_i) > 21 %><i class="fa fa-clock-o clock" aria-hidden="true"></i><% end %> <%= (Date.today - Date.parse(submission.created_at.to_s)).to_i %>/<%= (Date.today - Date.parse(submission.updated_at.to_s)).to_i %></td>
         <td>
           <%= link_to 'Show', submission %>
           <%= link_to 'Edit', edit_submission_path(submission) %>

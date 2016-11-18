@@ -112,6 +112,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:name, :email, :submission, :coverletter, :time, :status)
+      params.require(:submission).permit(:name, :email, :submission, :coverletter, :status)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111041830) do
+ActiveRecord::Schema.define(version: 20161118042406) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "user"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20161111041830) do
     t.string   "email"
     t.text     "submission"
     t.text     "coverletter"
-    t.datetime "time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "status"
