@@ -20,13 +20,17 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
   </div>
   <h3>Settings</h3>
   <div class="field">
     <%= f.label :target_days %><br>
-    <%= f.text_field :target_days %>
+    <%= f.number_field :target_days %>
+  </div>
+  <div class="field">
+    <%= f.label :hold_target %><br>
+    <%= f.number_field :hold_target %>
   </div>
   <div class="actions">
     <%= f.submit %>
