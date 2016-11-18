@@ -29,7 +29,11 @@
         <td><%= submission.email %></td>
         <td><%= submission.submission %></td>
         <td><%= submission.status %></td>
-        <td align="right"><% if ((Date.today - Date.parse(submission.created_at.to_s)).to_i) > 21 %><i class="fa fa-clock-o clock" aria-hidden="true"></i><% end %> <%= (Date.today - Date.parse(submission.created_at.to_s)).to_i %>/<%= (Date.today - Date.parse(submission.updated_at.to_s)).to_i %></td>
+        <td align="right">
+          <% if ( submission.status == 'on hold' && ((Date.today - Date.parse(submission.updated_at.to_s)).to_i) > 1) || (submission.status == nil && ((Date.today - Date.parse(submission.created_at.to_s)).to_i) > 1) %>
+            <i class="fa fa-clock-o clock" aria-hidden="true"></i>
+          <% end %> 
+          <%= (Date.today - Date.parse(submission.created_at.to_s)).to_i %>/<%= (Date.today - Date.parse(submission.updated_at.to_s)).to_i %></td>
         <td>
           <%= link_to 'Show', submission %>
           <%= link_to 'Edit', edit_submission_path(submission) %>
