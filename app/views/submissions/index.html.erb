@@ -30,7 +30,7 @@
         <td><%= submission.submission %></td>
         <td><%= submission.status %></td>
         <td align="right">
-          <% if ( submission.status == 'on hold' && ((Date.today - Date.parse(submission.updated_at.to_s)).to_i) > 1) || (submission.status == nil && ((Date.today - Date.parse(submission.created_at.to_s)).to_i) > 1) %>
+          <% if ( submission.status == 'on hold' && ((Date.today - Date.parse(submission.updated_at.to_s)).to_i) > current_user.hold_target) || (submission.status == nil && ((Date.today - Date.parse(submission.created_at.to_s)).to_i) > current_user.target_days) %>
             <i class="fa fa-clock-o clock" aria-hidden="true"></i>
           <% end %> 
           <%= (Date.today - Date.parse(submission.created_at.to_s)).to_i %>/<%= (Date.today - Date.parse(submission.updated_at.to_s)).to_i %></td>
@@ -41,7 +41,7 @@
         </td>
         <td>
           <% @rating=4 %>
-          <%= link_to rating_change_path(submission.id, "1"), method: :hold do %>
+          <%= link_to rating_change_path(submission.id, current_user.id, "1"), method: :hold do %>
             <span class="<%= 'rated' if @rating > 0 %> <%= 'unrated' if @rating <1 %>">
               <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
