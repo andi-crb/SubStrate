@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name , :class => "col-lg-2 control-label" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email, :class => "col-lg-2 control-label"  %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password , :class => "col-lg-2 control-label" %><br>
     <%= f.password_field :password %>
   </div>
   <h3>Settings</h3>
   <div class="field">
-    <%= f.label :target_days %><br>
+    <%= f.label :target_days , :class => "col-lg-2 control-label" %><br>
     <%= f.number_field :target_days %>
   </div>
   <div class="field">
-    <%= f.label :hold_target %><br>
+    <%= f.label :hold_target, :class => "col-lg-2 control-label" %><br>
     <%= f.number_field :hold_target %>
   </div>
   <div class="actions">
