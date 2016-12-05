@@ -2,6 +2,8 @@
 
   Email: <%= text_field_tag :email %>
   Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
+  <%= submit_tag "Submit", class: 'btn btn-default' %>
+  
 <% end %>
+
+<p>Or  <%= link_to "create a new account", "/users/new/" %>.</p>
