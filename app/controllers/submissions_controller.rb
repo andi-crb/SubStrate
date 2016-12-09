@@ -1,5 +1,6 @@
  class SubmissionsController < ApplicationController
    before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept, :reject, :hold]
+   before_action :check_user
    has_scope :status
    # GET /submissions
    # GET /submissions.json
@@ -108,6 +109,12 @@ end
     # Use callbacks to share common setup or constraints between actions.
     def set_submission
       @submission = Submission.find(params[:id])
+    end
+    
+    def check_user
+      if session[:user_id]
+        redirect_to root_url, alert: "Sorry, This Profile belongs to someone else !"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
