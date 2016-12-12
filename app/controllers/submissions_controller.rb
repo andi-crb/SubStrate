@@ -122,3 +122,8 @@ end
       params.require(:submission).permit(:name, :email, :submission, :coverletter, :status)
     end
 end
+
+
+# get submissions where status is on hold or none
+# count all submissions
+# count all submissions past date
