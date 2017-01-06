@@ -1,6 +1,6 @@
  class SubmissionsController < ApplicationController
    before_action :set_submission, only: [:show, :edit, :update, :destroy, :accept, :reject, :hold]
-   before_action :check_user
+  # before_action :check_user
    has_scope :status
    # GET /submissions
    # GET /submissions.json

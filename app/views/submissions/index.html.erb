@@ -41,7 +41,7 @@
         </td>
         <td>
           <% @rating=4 %>
-          <%= link_to rating_change_path(submission.id, current_user.id, "1"), method: :hold do %>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
             <span class="<%= 'rated' if @rating > 0 %> <%= 'unrated' if @rating <1 %>">
               <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
@@ -67,7 +67,33 @@
             <% end %>
           </span>
         </td>
-        <td></td>
+        <td>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 0 %> <%= 'unrated' if @rating <1 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 1 %> <%= 'unrated' if @rating <2 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 2 %> <%= 'unrated' if @rating <3 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 3 %> <%= 'unrated' if @rating <4 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+          <%= link_to rating_change_path(submission.id), method: :hold do %>
+            <span class="<%= 'rated' if @rating > 4 %> <%= 'unrated' if @rating <5 %>">
+              <i class="fa fa-star" aria-hidden="true"></i>
+            <% end %>
+          </span>
+        </td>
         <td><%= link_to accept_status_change_path(submission.id), method: :accept, data: { confirm: 'Are you sure?' } do %>
           <i class="fa fa-check fa-border yes" aria-hidden="true"></i>
         <% end %></td>
